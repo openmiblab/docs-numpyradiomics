@@ -135,7 +135,6 @@ source_suffix = ['.rst', '.md']
 html_logo = '_static/numpyradiomics.png'
 
 
-
 # #### THIS CODE BLOCK ADDED TO FIX pandoc INSTALLATION ISSUES #####
 # #### Pandoc is needed to render jupyter notebooks with nbsphinx
 
