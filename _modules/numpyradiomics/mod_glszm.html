@@ -1,0 +1,683 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>numpyradiomics.mod_glszm &#8212; numpyradiomics 0.0.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/teams.css?v=dbae51d5" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=e3a6060d"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/numpyradiomics/mod_glszm';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/numpyradiomics.png" class="logo__image only-light" alt="numpyradiomics 0.0.2 documentation - Home"/>
+    <img src="../../_static/numpyradiomics.png" class="logo__image only-dark pst-js-only" alt="numpyradiomics 0.0.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openmiblab/docs-numpyradiomics" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openmiblab/docs-numpyradiomics" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">numpyradiomics.mod_glszm</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for numpyradiomics.mod_glszm</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">label</span>
+
+<div class="viewcode-block" id="glszm">
+<a class="viewcode-back" href="../../api/numpyradiomics.glszm.html#numpyradiomics.glszm">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">glszm</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">binWidth</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">connectivity</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute 16 Pyradiomics-style GLSZM (Gray Level Size Zone Matrix) features.</span>
+
+<span class="sd">    GLSZM quantifies gray level zones in an image. A gray level zone is defined as a</span>
+<span class="sd">    number of connected voxels that share the same gray level intensity.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        image (np.ndarray): 3D image array containing voxel intensities.</span>
+<span class="sd">        mask (np.ndarray): 3D mask array (same shape as image), where non-zero values indicate the ROI.</span>
+<span class="sd">        binWidth (float, optional): Width of bins for discretization. Default is 25.</span>
+<span class="sd">        levels (int, optional): Number of levels for discretization. If None, calculated from binWidth.</span>
+<span class="sd">        connectivity (int, optional): Connectivity kernel (e.g., 6, 18, 26 for 3D). </span>
+<span class="sd">                                    Default is None (26-connected in 3D, 8-connected in 2D).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Dictionary containing the 16 GLSZM features:</span>
+<span class="sd">            - **SmallAreaEmphasis**: Measures the distribution of small zones.</span>
+<span class="sd">            - **LargeAreaEmphasis**: Measures the distribution of large zone sizes.</span>
+<span class="sd">            - **GrayLevelNonUniformity**: Measures the variability of gray-level values in the image.</span>
+<span class="sd">            - **GrayLevelNonUniformityNormalized**: Normalized version of GLN.</span>
+<span class="sd">            - **ZoneSizeNonUniformity**: Measures the variability of zone size values.</span>
+<span class="sd">            - **ZoneSizeNonUniformityNormalized**: Normalized version of ZSN.</span>
+<span class="sd">            - **ZonePercentage**: Measures the coarseness of the texture.</span>
+<span class="sd">            - **LowGrayLevelZoneEmphasis**: Measures the distribution of lower gray-level values.</span>
+<span class="sd">            - **HighGrayLevelZoneEmphasis**: Measures the distribution of higher gray-level values.</span>
+<span class="sd">            - **SmallAreaLowGrayLevelEmphasis**: Emphasis on small zones with low gray levels.</span>
+<span class="sd">            - **SmallAreaHighGrayLevelEmphasis**: Emphasis on small zones with high gray levels.</span>
+<span class="sd">            - **LargeAreaLowGrayLevelEmphasis**: Emphasis on large zones with low gray levels.</span>
+<span class="sd">            - **LargeAreaHighGrayLevelEmphasis**: Emphasis on large zones with high gray levels.</span>
+<span class="sd">            - **GrayLevelVariance**: Variance of gray level intensities in the zones.</span>
+<span class="sd">            - **ZoneSizeVariance**: Variance of zone size volumes.</span>
+<span class="sd">            - **ZoneEntropy**: Uncertainty/Randomness in the distribution of zone sizes and gray levels.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpyradiomics as npr</span>
+<span class="sd">        &gt;&gt;&gt; # Generate a noisy ellipsoid</span>
+<span class="sd">        &gt;&gt;&gt; img, mask = npr.dro.noisy_ellipsoid(radii_mm=(15, 15, 15), intensity_range=(0, 100))</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Compute GLSZM features</span>
+<span class="sd">        &gt;&gt;&gt; feats = npr.glszm(img, mask, binWidth=10)</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;ZonePercentage: {feats[&#39;ZonePercentage&#39;]:.4f}&quot;)</span>
+<span class="sd">        ZonePercentage: 0.8912</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">roi_mask</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">roi_mask</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Mask contains no voxels.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># 1. Quantization</span>
+    <span class="n">roi_image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">min_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">roi_image</span><span class="p">[</span><span class="n">roi_mask</span><span class="p">])</span>
+    
+    <span class="k">if</span> <span class="n">levels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">max_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">roi_image</span><span class="p">[</span><span class="n">roi_mask</span><span class="p">])</span>
+        <span class="n">levels</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">max_val</span> <span class="o">-</span> <span class="n">min_val</span><span class="p">)</span> <span class="o">/</span> <span class="n">binWidth</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+        
+    <span class="n">diff</span> <span class="o">=</span> <span class="n">roi_image</span> <span class="o">-</span> <span class="n">min_val</span>
+    <span class="n">diff</span><span class="p">[</span><span class="n">roi_mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">diff</span><span class="p">[</span><span class="n">roi_mask</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># 1-based indexing (0 = background)</span>
+    <span class="n">img_q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">diff</span> <span class="o">/</span> <span class="n">binWidth</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">img_q</span><span class="p">[</span><span class="o">~</span><span class="n">roi_mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">img_q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">img_q</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">levels</span><span class="p">)</span>
+
+    <span class="c1"># 2. Zone Counting</span>
+    <span class="n">dims</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">ndim</span>
+    <span class="c1"># Default connectivity: 8 (2D) or 26 (3D) -&gt; All neighbors</span>
+    <span class="k">if</span> <span class="n">connectivity</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">connectivity</span> <span class="o">=</span> <span class="mi">26</span> <span class="k">if</span> <span class="n">dims</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="mi">8</span>
+        
+    <span class="n">structure</span> <span class="o">=</span> <span class="n">_get_connectivity_structure</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">connectivity</span><span class="p">)</span>
+    
+    <span class="c1"># Initialize Matrix: Rows (Gray Levels) x Cols (Zone Sizes)</span>
+    <span class="c1"># Max zone size is the total ROI volume</span>
+    <span class="n">max_zone</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">roi_mask</span><span class="p">)</span>
+    <span class="n">glszm_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">levels</span><span class="p">,</span> <span class="n">max_zone</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    
+    <span class="c1"># Iterate over active gray levels</span>
+    <span class="c1"># Optimization: Only process levels present in the ROI</span>
+    <span class="n">active_levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">img_q</span><span class="p">[</span><span class="n">roi_mask</span><span class="p">])</span>
+    
+    <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">active_levels</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">g</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">continue</span>
+        
+        <span class="c1"># Binary mask for this gray level</span>
+        <span class="n">mask_g</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_q</span> <span class="o">==</span> <span class="n">g</span><span class="p">)</span>
+        
+        <span class="c1"># Connected components</span>
+        <span class="n">labeled_map</span><span class="p">,</span> <span class="n">num_features</span> <span class="o">=</span> <span class="n">label</span><span class="p">(</span><span class="n">mask_g</span><span class="p">,</span> <span class="n">structure</span><span class="o">=</span><span class="n">structure</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">num_features</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Count sizes of each zone</span>
+            <span class="c1"># bincount returns counts for label 0 (background), 1, 2...</span>
+            <span class="c1"># We skip index 0.</span>
+            <span class="n">sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">labeled_map</span><span class="o">.</span><span class="n">ravel</span><span class="p">())[</span><span class="mi">1</span><span class="p">:]</span>
+            
+            <span class="c1"># Accumulate into matrix</span>
+            <span class="c1"># g-1 because matrix is 0-indexed for gray levels</span>
+            <span class="c1"># sizes-1 because matrix is 0-indexed for sizes (size 1 -&gt; index 0)</span>
+            <span class="c1"># Use np.add.at for vectorization</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">glszm_mat</span><span class="p">,</span> <span class="p">(</span><span class="n">g</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sizes</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># 3. Compute Features</span>
+    <span class="n">Np</span> <span class="o">=</span> <span class="n">max_zone</span> <span class="c1"># Total number of voxels in ROI</span>
+    <span class="k">return</span> <span class="n">_compute_glszm_features</span><span class="p">(</span><span class="n">glszm_mat</span><span class="p">,</span> <span class="n">Np</span><span class="p">)</span></div>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_connectivity_structure</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">connectivity</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate the scipy.ndimage.label structure element.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">dims</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">connectivity</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c1"># 8</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">dims</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">struct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Center</span>
+        <span class="n">struct</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        
+        <span class="c1"># 6-connectivity (Faces)</span>
+        <span class="n">faces</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">faces</span><span class="p">:</span> <span class="n">struct</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">connectivity</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span> <span class="k">return</span> <span class="n">struct</span>
+        
+        <span class="c1"># 18-connectivity (Faces + Edges)</span>
+        <span class="c1"># Edges are coordinates varying in 2 dimensions</span>
+        <span class="c1"># Easier: 18 = 3x3x3 minus corners</span>
+        <span class="k">if</span> <span class="n">connectivity</span> <span class="o">==</span> <span class="mi">18</span><span class="p">:</span>
+            <span class="n">s18</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="n">corners</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+                       <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">corners</span><span class="p">:</span> <span class="n">s18</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">return</span> <span class="n">s18</span>
+            
+        <span class="c1"># 26-connectivity (All neighbors)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_glszm_features</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">Np</span><span class="p">):</span>
+    <span class="n">Nz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">Nz</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{}</span>
+    
+    <span class="c1"># Normalize</span>
+    <span class="n">P_norm</span> <span class="o">=</span> <span class="n">P</span> <span class="o">/</span> <span class="n">Nz</span>
+    <span class="n">Ng</span><span class="p">,</span> <span class="n">Ns</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">shape</span>
+    
+    <span class="c1"># Indices (1-based) -- FORCE FLOAT64 to prevent int32 overflow</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ng</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
+    <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ns</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> 
+    
+    <span class="c1"># Marginals</span>
+    <span class="n">pg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P_norm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># (Ng,)</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P_norm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># (Ns,)</span>
+    
+    <span class="c1"># Flatten for 1D sums</span>
+    <span class="n">i_flat</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">j_flat</span> <span class="o">=</span> <span class="n">j</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    
+    <span class="c1"># ... (Rest of function remains exactly the same) ...</span>
+    <span class="c1"># Now (i**2 * j**2) will happen in float64 space, safely handling 10^10+ values.</span>
+    
+    <span class="c1"># Means</span>
+    <span class="n">mu_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pg</span> <span class="o">*</span> <span class="n">i_flat</span><span class="p">)</span>
+    <span class="n">mu_j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ps</span> <span class="o">*</span> <span class="n">j_flat</span><span class="p">)</span>
+    
+    <span class="c1"># Features</span>
+    <span class="n">sae</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ps</span> <span class="o">/</span> <span class="p">(</span><span class="n">j_flat</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">lae</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ps</span> <span class="o">*</span> <span class="p">(</span><span class="n">j_flat</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">gln</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">Nz</span>
+    <span class="n">glnn</span> <span class="o">=</span> <span class="n">gln</span> <span class="o">/</span> <span class="n">Nz</span>
+    <span class="n">zsn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">Nz</span>
+    <span class="n">zsnn</span> <span class="o">=</span> <span class="n">zsn</span> <span class="o">/</span> <span class="n">Nz</span>
+    <span class="n">zp</span> <span class="o">=</span> <span class="n">Nz</span> <span class="o">/</span> <span class="n">Np</span>
+    <span class="n">lglze</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pg</span> <span class="o">/</span> <span class="p">(</span><span class="n">i_flat</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">hglze</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pg</span> <span class="o">*</span> <span class="p">(</span><span class="n">i_flat</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">salgle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P_norm</span> <span class="o">/</span> <span class="p">((</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+    <span class="n">sahgle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P_norm</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">j</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">lalgle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P_norm</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">lahgle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P_norm</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">glv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pg</span> <span class="o">*</span> <span class="p">(</span><span class="n">i_flat</span> <span class="o">-</span> <span class="n">mu_i</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">zsv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ps</span> <span class="o">*</span> <span class="p">(</span><span class="n">j_flat</span> <span class="o">-</span> <span class="n">mu_j</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="n">eps</span> <span class="o">=</span> <span class="mf">2e-16</span>
+    <span class="n">ze</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P_norm</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">P_norm</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;SmallAreaEmphasis&#39;</span><span class="p">:</span> <span class="n">sae</span><span class="p">,</span> <span class="s1">&#39;LargeAreaEmphasis&#39;</span><span class="p">:</span> <span class="n">lae</span><span class="p">,</span>
+        <span class="s1">&#39;GrayLevelNonUniformity&#39;</span><span class="p">:</span> <span class="n">gln</span><span class="p">,</span> <span class="s1">&#39;GrayLevelNonUniformityNormalized&#39;</span><span class="p">:</span> <span class="n">glnn</span><span class="p">,</span>
+        <span class="s1">&#39;ZoneSizeNonUniformity&#39;</span><span class="p">:</span> <span class="n">zsn</span><span class="p">,</span> <span class="s1">&#39;ZoneSizeNonUniformityNormalized&#39;</span><span class="p">:</span> <span class="n">zsnn</span><span class="p">,</span>
+        <span class="s1">&#39;ZonePercentage&#39;</span><span class="p">:</span> <span class="n">zp</span><span class="p">,</span>
+        <span class="s1">&#39;LowGrayLevelZoneEmphasis&#39;</span><span class="p">:</span> <span class="n">lglze</span><span class="p">,</span> <span class="s1">&#39;HighGrayLevelZoneEmphasis&#39;</span><span class="p">:</span> <span class="n">hglze</span><span class="p">,</span>
+        <span class="s1">&#39;SmallAreaLowGrayLevelEmphasis&#39;</span><span class="p">:</span> <span class="n">salgle</span><span class="p">,</span> <span class="s1">&#39;SmallAreaHighGrayLevelEmphasis&#39;</span><span class="p">:</span> <span class="n">sahgle</span><span class="p">,</span>
+        <span class="s1">&#39;LargeAreaLowGrayLevelEmphasis&#39;</span><span class="p">:</span> <span class="n">lalgle</span><span class="p">,</span> <span class="s1">&#39;LargeAreaHighGrayLevelEmphasis&#39;</span><span class="p">:</span> <span class="n">lahgle</span><span class="p">,</span>
+        <span class="s1">&#39;GrayLevelVariance&#39;</span><span class="p">:</span> <span class="n">glv</span><span class="p">,</span> <span class="s1">&#39;ZoneSizeVariance&#39;</span><span class="p">:</span> <span class="n">zsv</span><span class="p">,</span> <span class="s1">&#39;ZoneEntropy&#39;</span><span class="p">:</span> <span class="n">ze</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="glszm_units">
+<a class="viewcode-back" href="../../api/numpyradiomics.glszm_units.html#numpyradiomics.glszm_units">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">glszm_units</span><span class="p">(</span><span class="n">base_unit</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns units for GLSZM features.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        intensity_unit (str, optional): The unit of pixel intensity (e.g., &#39;HU&#39;, &#39;GV&#39;, &#39;&#39;). Default is &#39;HU&#39;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Dictionary mapping feature names to their units.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from numpyradiomics import glszm_units</span>
+<span class="sd">        &gt;&gt;&gt; units = glszm_units(intensity_unit=&#39;SUV&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; print(units[&#39;LowGrayLevelZoneEmphasis&#39;])</span>
+<span class="sd">        SUV^-2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="c1"># 1. Zone Size Emphasis (j) -&gt; Dimensionless (Counts)</span>
+        <span class="s2">&quot;SmallAreaEmphasis&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LargeAreaEmphasis&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        
+        <span class="c1"># 2. Non-Uniformity -&gt; Dimensionless</span>
+        <span class="s2">&quot;GrayLevelNonUniformity&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;GrayLevelNonUniformityNormalized&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ZoneSizeNonUniformity&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ZoneSizeNonUniformityNormalized&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ZonePercentage&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        
+        <span class="c1"># 3. Gray Level Emphasis (i) -&gt; Intensity Units</span>
+        <span class="s2">&quot;LowGrayLevelZoneEmphasis&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^-2&quot;</span><span class="p">,</span>      <span class="c1"># 1/I^2</span>
+        <span class="s2">&quot;HighGrayLevelZoneEmphasis&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^2&quot;</span><span class="p">,</span>      <span class="c1"># I^2</span>
+        
+        <span class="c1"># 4. Mixed Emphasis</span>
+        <span class="s2">&quot;SmallAreaLowGrayLevelEmphasis&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^-2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;SmallAreaHighGrayLevelEmphasis&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LargeAreaLowGrayLevelEmphasis&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^-2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;LargeAreaHighGrayLevelEmphasis&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^2&quot;</span><span class="p">,</span>
+        
+        <span class="c1"># 5. Variance / Entropy</span>
+        <span class="s2">&quot;GrayLevelVariance&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ZoneSizeVariance&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ZoneEntropy&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">}</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, miblab.org.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,784 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>numpyradiomics.mod_glcm &#8212; numpyradiomics 0.0.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/teams.css?v=dbae51d5" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=e3a6060d"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/numpyradiomics/mod_glcm';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/numpyradiomics.png" class="logo__image only-light" alt="numpyradiomics 0.0.2 documentation - Home"/>
+    <img src="../../_static/numpyradiomics.png" class="logo__image only-dark pst-js-only" alt="numpyradiomics 0.0.2 documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openmiblab/docs-numpyradiomics" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../user_guide/index.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../about/index.html">
+    About
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/openmiblab/docs-numpyradiomics" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">numpyradiomics.mod_glcm</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for numpyradiomics.mod_glcm</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<div class="viewcode-block" id="glcm">
+<a class="viewcode-back" href="../../api/numpyradiomics.glcm.html#numpyradiomics.glcm">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">glcm</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">binWidth</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">distances</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">symmetricalGLCM</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">weightingNorm</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute 24 Pyradiomics-style GLCM (Gray Level Co-occurrence Matrix) features.</span>
+
+<span class="sd">    The GLCM describes the second-order joint probability function of an image region,</span>
+<span class="sd">    constrained by the mask. It counts how often pairs of voxels with specific gray</span>
+<span class="sd">    levels and specific spatial relationships occur.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        image (np.ndarray): 3D image array containing voxel intensities.</span>
+<span class="sd">        mask (np.ndarray): 3D mask array (same shape as image), where non-zero values indicate the ROI.</span>
+<span class="sd">        binWidth (float, optional): Width of bins for discretization. Default is 25.</span>
+<span class="sd">        distances (list, optional): List of integer distances (offsets) to compute GLCMs for. Default is [1].</span>
+<span class="sd">        symmetricalGLCM (bool, optional): If True, counts co-occurrences in both directions (i-&gt;j and j-&gt;i).</span>
+<span class="sd">                                          If False, only counts i-&gt;j. Default is True.</span>
+<span class="sd">        weightingNorm (str, optional): Method to weight GLCMs if multiple distances are used.</span>
+<span class="sd">                                       Options: None, &#39;manhattan&#39;, &#39;euclidean&#39;, &#39;infinity&#39;. Default is None.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Dictionary containing the 24 GLCM features:</span>
+<span class="sd">            - **Autocorrelation**: Magnitude of the fineness and coarseness of texture.</span>
+<span class="sd">            - **ClusterProminence**: Asymmetry of the GLCM.</span>
+<span class="sd">            - **ClusterShade**: Skewness of the matrix.</span>
+<span class="sd">            - **ClusterTendency**: Grouping of voxels with similar gray-level values.</span>
+<span class="sd">            - **Contrast**: Local intensity variation (favors contributions away from the diagonal).</span>
+<span class="sd">            - **Correlation**: Linear dependency of gray levels to their neighbors.</span>
+<span class="sd">            - **DifferenceAverage**: Mean of the difference distribution.</span>
+<span class="sd">            - **DifferenceEntropy**: Randomness/variability in neighborhood intensity differences.</span>
+<span class="sd">            - **DifferenceVariance**: Variance of the difference distribution.</span>
+<span class="sd">            - **JointAverage**: Mean gray level intensity of the $i$ distribution.</span>
+<span class="sd">            - **JointEnergy**: Homogeneity of the texture (sum of squared elements).</span>
+<span class="sd">            - **JointEntropy**: Randomness/variability in neighborhood intensity values.</span>
+<span class="sd">            - **Id**: Inverse Difference (homogeneity 1).</span>
+<span class="sd">            - **Idm**: Inverse Difference Moment (homogeneity 2).</span>
+<span class="sd">            - **Idmn**: Normalized Inverse Difference Moment.</span>
+<span class="sd">            - **Idn**: Normalized Inverse Difference.</span>
+<span class="sd">            - **Imc1**: Informational Measure of Correlation 1.</span>
+<span class="sd">            - **Imc2**: Informational Measure of Correlation 2.</span>
+<span class="sd">            - **InverseVariance**: Inverse variance of the difference distribution.</span>
+<span class="sd">            - **MCC**: Maximal Correlation Coefficient.</span>
+<span class="sd">            - **MaximumProbability**: Occurrence of the most predominant pair of neighboring intensity values.</span>
+<span class="sd">            - **SumAverage**: Mean of the sum distribution.</span>
+<span class="sd">            - **SumEntropy**: Sum of entropies.</span>
+<span class="sd">            - **SumSquares**: Variance of the distribution (Cluster Tendency is a specific case of this).</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpyradiomics as npr</span>
+<span class="sd">        &gt;&gt;&gt; # Generate a noisy ellipsoid</span>
+<span class="sd">        &gt;&gt;&gt; img, mask = npr.dro.noisy_ellipsoid(radii_mm=(10, 10, 10), intensity_range=(0, 100))</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; # Compute GLCM features (distance=1)</span>
+<span class="sd">        &gt;&gt;&gt; feats = npr.glcm(img, mask, binWidth=10, distances=[1])</span>
+<span class="sd">        &gt;&gt;&gt; </span>
+<span class="sd">        &gt;&gt;&gt; print(f&quot;Contrast: {feats[&#39;Contrast&#39;]:.4f}&quot;)</span>
+<span class="sd">        Contrast: 12.4501</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Mask contains no voxels&quot;</span><span class="p">)</span>
+
+    <span class="n">roi</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="n">Imin</span> <span class="o">=</span> <span class="n">roi</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+    
+    <span class="c1"># --- FIX: Clamp discretization to avoid epsilon errors ---</span>
+    <span class="c1"># If image[i] == Imin, (image - Imin) might be -1e-16, causing floor() to be -1</span>
+    <span class="c1"># This would map valid pixels to bin 0 (background), shifting the mean/autocorr.</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="n">image</span> <span class="o">-</span> <span class="n">Imin</span>
+    <span class="n">diff</span><span class="p">[</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">diff</span><span class="p">[</span><span class="n">mask</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">img_q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">diff</span> <span class="o">/</span> <span class="n">binWidth</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">img_q</span><span class="p">[</span><span class="n">mask</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">levels</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">img_q</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+
+    <span class="c1"># --- FIX 2: Handle Degenerate (Single Gray Level) ROIs ---</span>
+    <span class="k">if</span> <span class="n">levels</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># Returns standard PyRadiomics defaults for flat regions</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;Autocorrelation&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;ClusterProminence&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;ClusterShade&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> 
+            <span class="s1">&#39;ClusterTendency&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;Contrast&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;Correlation&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> 
+            <span class="s1">&#39;DifferenceAverage&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;DifferenceEntropy&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;DifferenceVariance&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> 
+            <span class="s1">&#39;Id&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Idm&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Idmn&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Idn&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;Imc1&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;Imc2&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> 
+            <span class="s1">&#39;InverseVariance&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;JointAverage&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;JointEnergy&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> 
+            <span class="s1">&#39;JointEntropy&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;MCC&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;MaximumProbability&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> 
+            <span class="s1">&#39;SumAverage&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;SumEntropy&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;SumSquares&#39;</span><span class="p">:</span> <span class="mf">0.0</span>
+        <span class="p">}</span>
+
+    <span class="c1"># ... (Step 2: Generate Angles - SAME AS BEFORE) ...</span>
+    <span class="n">dims</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">ndim</span>
+    <span class="k">if</span> <span class="n">dims</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">angles</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> 
+            <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> 
+            <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">angles</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+
+    <span class="n">final_offsets</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">d_seq</span> <span class="o">=</span> <span class="n">distances</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">distances</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">distances</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">d_list</span> <span class="ow">in</span> <span class="n">d_seq</span><span class="p">:</span>
+        <span class="n">d_sub</span> <span class="o">=</span> <span class="n">d_list</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">d_list</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">d_list</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">d_sub</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">angles</span><span class="p">:</span>
+                <span class="n">final_offsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span>
+
+    <span class="c1"># ... (Step 3: Accumulate P Matrix - SAME AS BEFORE) ...</span>
+    <span class="n">P_accum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">levels</span><span class="p">,</span> <span class="n">levels</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">final_offsets</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">weightingNorm</span> <span class="o">==</span> <span class="s1">&#39;manhattan&#39;</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">final_offsets</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">weightingNorm</span> <span class="o">==</span> <span class="s1">&#39;euclidean&#39;</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">final_offsets</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">weightingNorm</span> <span class="o">==</span> <span class="s1">&#39;infinity&#39;</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">final_offsets</span><span class="p">])</span>
+    
+    <span class="n">weights</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">offset</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">final_offsets</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+        <span class="n">P_accum</span> <span class="o">+=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">_glcm_offset</span><span class="p">(</span><span class="n">img_q</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">symmetricalGLCM</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">P_accum</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">P_accum</span> <span class="o">/=</span> <span class="n">P_accum</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">_compute_features_from_matrix</span><span class="p">(</span><span class="n">P_accum</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_glcm_offset</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">symmetric</span><span class="p">):</span>
+    <span class="n">slices_src</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">slices_dst</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">shift</span> <span class="ow">in</span> <span class="n">offset</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">shift</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">slices_src</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">shift</span><span class="p">))</span>
+            <span class="n">slices_dst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="n">shift</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">shift</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">slices_src</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="n">shift</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+            <span class="n">slices_dst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shift</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">slices_src</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+            <span class="n">slices_dst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>
+            
+    <span class="n">src_vals</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">slices_src</span><span class="p">)]</span>
+    <span class="n">dst_vals</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">slices_dst</span><span class="p">)]</span>
+    <span class="n">valid</span> <span class="o">=</span> <span class="p">(</span><span class="n">src_vals</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dst_vals</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">src_vals</span><span class="p">[</span><span class="n">valid</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">dst_vals</span><span class="p">[</span><span class="n">valid</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+    
+    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">levels</span><span class="p">,</span> <span class="n">levels</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">symmetric</span><span class="p">:</span>
+        <span class="n">P</span> <span class="o">+=</span> <span class="n">P</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">return</span> <span class="n">P</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_compute_features_from_matrix</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
+    <span class="n">Ng</span> <span class="o">=</span> <span class="n">P</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="mf">2e-16</span>
+    
+    <span class="c1"># Grid indices (1-based)</span>
+    <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">((</span><span class="n">Ng</span><span class="p">,</span> <span class="n">Ng</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span> 
+    
+    <span class="c1"># Marginal probabilities</span>
+    <span class="n">px</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># Row sums</span>
+    <span class="n">py</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Col sums</span>
+    
+    <span class="c1"># --- FIX 1: Correct Mean Calculation ---</span>
+    <span class="c1"># Use 1D index vector for means to avoid 2D broadcasting errors</span>
+    <span class="n">k_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ng</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">ux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">k_values</span> <span class="o">*</span> <span class="n">px</span><span class="p">)</span> 
+    <span class="n">uy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">k_values</span> <span class="o">*</span> <span class="n">py</span><span class="p">)</span>
+    
+    <span class="c1"># Variances</span>
+    <span class="c1"># Here broadcasting works correctly because (N,N) * (N,) aligns on columns?</span>
+    <span class="c1"># No, to be safe, use explicit reshaping or the grid &#39;i&#39;.</span>
+    <span class="c1"># i is (Ng, Ng) where rows are constant 1, 2... </span>
+    <span class="c1"># px is (Ng,). </span>
+    <span class="c1"># (i - ux)**2 * px REQUIRES checking broadcast alignment.</span>
+    <span class="c1"># It&#39;s safer to use the 1D vector:</span>
+    <span class="n">sigx2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">k_values</span> <span class="o">-</span> <span class="n">ux</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">px</span><span class="p">)</span>
+    <span class="n">sigy2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">k_values</span> <span class="o">-</span> <span class="n">uy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">py</span><span class="p">)</span>
+    <span class="n">sigx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigx2</span><span class="p">)</span>
+    <span class="n">sigy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigy2</span><span class="p">)</span>
+
+    <span class="c1"># ... (Rest of features use &#39;i&#39; and &#39;j&#39; grids which is correct) ...</span>
+    
+    <span class="n">autocorr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">j</span> <span class="o">*</span> <span class="n">P</span><span class="p">)</span>
+    <span class="n">joint_avg</span> <span class="o">=</span> <span class="n">ux</span> 
+    <span class="n">cluster_prom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">-</span> <span class="n">ux</span> <span class="o">-</span> <span class="n">uy</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">)</span>
+    <span class="n">cluster_shade</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">-</span> <span class="n">ux</span> <span class="o">-</span> <span class="n">uy</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">)</span>
+    <span class="n">cluster_tend</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="o">-</span> <span class="n">ux</span> <span class="o">-</span> <span class="n">uy</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">)</span>
+    <span class="n">contrast</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">i</span> <span class="o">-</span> <span class="n">j</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">sigx</span> <span class="o">*</span> <span class="n">sigy</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">correlation</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">correlation</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">i</span> <span class="o">-</span> <span class="n">ux</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">uy</span><span class="p">)</span> <span class="o">*</span> <span class="n">P</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">sigx</span> <span class="o">*</span> <span class="n">sigy</span><span class="p">))</span>
+        
+    <span class="n">k_vals_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">j</span><span class="p">)</span>
+    <span class="n">px_minus_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">k_vals_diff</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">weights</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+    <span class="n">k_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">px_minus_y</span><span class="p">))</span>
+    
+    <span class="n">diff_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">k_indices</span> <span class="o">*</span> <span class="n">px_minus_y</span><span class="p">)</span>
+    <span class="n">diff_ent</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">px_minus_y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">px_minus_y</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span>
+    <span class="n">diff_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">k_indices</span> <span class="o">-</span> <span class="n">diff_avg</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">px_minus_y</span><span class="p">)</span>
+    
+    <span class="n">joint_energy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">joint_ent</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">P</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span>
+    
+    <span class="n">i_minus_j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">j</span><span class="p">)</span>
+    <span class="n">i_minus_j_sq</span> <span class="o">=</span> <span class="n">i_minus_j</span><span class="o">**</span><span class="mi">2</span>
+    
+    <span class="n">Id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i_minus_j</span><span class="p">))</span>
+    <span class="n">Idm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i_minus_j_sq</span><span class="p">))</span>
+    
+<span class="c1"># ... inside _compute_features_from_matrix ...</span>
+
+    <span class="c1"># MCC (Maximal Correlation Coefficient)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">px_safe</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">copy</span><span class="p">();</span> <span class="n">px_safe</span><span class="p">[</span><span class="n">px</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+        <span class="n">py_safe</span> <span class="o">=</span> <span class="n">py</span><span class="o">.</span><span class="n">copy</span><span class="p">();</span> <span class="n">py_safe</span><span class="p">[</span><span class="n">py</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+        
+        <span class="c1"># Calculate Q matrix</span>
+        <span class="n">Q</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span> <span class="o">/</span> <span class="n">px_safe</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">])</span> <span class="o">@</span> <span class="p">(</span><span class="n">P</span> <span class="o">/</span> <span class="n">py_safe</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span><span class="o">.</span><span class="n">T</span>
+        
+        <span class="c1"># Calculate eigenvalues</span>
+        <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+        
+        <span class="c1"># Sort and take the second largest magnitude</span>
+        <span class="c1"># We sort by abs because slight complex noise can happen</span>
+        <span class="n">eigenvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">))</span>
+        
+        <span class="c1"># The largest eigenval should be approx 1.0 (trivial solution).</span>
+        <span class="c1"># We want the one just before it.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">second_largest</span> <span class="o">=</span> <span class="n">eigenvalues</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">mcc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">second_largest</span><span class="p">)</span> <span class="k">if</span> <span class="n">second_largest</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mf">0.0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mcc</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">mcc</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="n">Idmn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">i_minus_j_sq</span> <span class="o">/</span> <span class="p">(</span><span class="n">Ng</span><span class="o">**</span><span class="mi">2</span><span class="p">))))</span>
+    <span class="n">Idn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">i_minus_j</span> <span class="o">/</span> <span class="n">Ng</span><span class="p">)))</span>
+    
+    <span class="n">mask_neq</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">)</span>
+    <span class="n">inv_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="n">mask_neq</span><span class="p">]</span> <span class="o">/</span> <span class="n">i_minus_j_sq</span><span class="p">[</span><span class="n">mask_neq</span><span class="p">])</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask_neq</span><span class="p">)</span> <span class="k">else</span> <span class="mf">0.0</span>
+    
+    <span class="n">max_prob</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+    
+    <span class="n">k_vals_sum</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span>
+    <span class="c1"># Min sum is 2 (1+1). bincount index 0 corresponds to sum=2.</span>
+    <span class="n">px_plus_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">k_vals_sum</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">P</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+    <span class="n">k_indices_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">px_plus_y</span><span class="p">))</span> <span class="o">+</span> <span class="mi">2</span> 
+    
+    <span class="n">sum_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">k_indices_sum</span> <span class="o">*</span> <span class="n">px_plus_y</span><span class="p">)</span>
+    <span class="n">sum_ent</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">px_plus_y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">px_plus_y</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span>
+    
+    <span class="c1"># Sum Squares (Variance relative to mean)</span>
+    <span class="c1"># Use 1D logic again for safety</span>
+    <span class="n">sum_squares</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(((</span><span class="n">k_values</span> <span class="o">-</span> <span class="n">ux</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">px</span><span class="p">)</span>
+    
+    <span class="n">hx</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">px</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">px</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span>
+    <span class="n">hy</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">py</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">py</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span>
+    <span class="n">hxy</span> <span class="o">=</span> <span class="n">joint_ent</span>
+    
+    <span class="n">p_log_px_py</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">px_safe</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">py_safe</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
+    <span class="n">hxy1</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">P</span> <span class="o">*</span> <span class="n">p_log_px_py</span><span class="p">)</span>
+    
+    <span class="n">px_py</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">)</span>
+    <span class="n">hxy2</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">px_py</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">px_py</span> <span class="o">+</span> <span class="n">eps</span><span class="p">))</span>
+    
+    <span class="n">imc1</span> <span class="o">=</span> <span class="p">(</span><span class="n">hxy</span> <span class="o">-</span> <span class="n">hxy1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">)</span> <span class="k">if</span> <span class="nb">max</span><span class="p">(</span><span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">imc2_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">hxy2</span> <span class="o">-</span> <span class="n">hxy</span><span class="p">))</span>
+    <span class="n">imc2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">imc2_term</span><span class="p">)</span> <span class="k">if</span> <span class="n">imc2_term</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;Autocorrelation&#39;</span><span class="p">:</span> <span class="n">autocorr</span><span class="p">,</span>
+        <span class="s1">&#39;ClusterProminence&#39;</span><span class="p">:</span> <span class="n">cluster_prom</span><span class="p">,</span>
+        <span class="s1">&#39;ClusterShade&#39;</span><span class="p">:</span> <span class="n">cluster_shade</span><span class="p">,</span>
+        <span class="s1">&#39;ClusterTendency&#39;</span><span class="p">:</span> <span class="n">cluster_tend</span><span class="p">,</span>
+        <span class="s1">&#39;Contrast&#39;</span><span class="p">:</span> <span class="n">contrast</span><span class="p">,</span>
+        <span class="s1">&#39;Correlation&#39;</span><span class="p">:</span> <span class="n">correlation</span><span class="p">,</span>
+        <span class="s1">&#39;DifferenceAverage&#39;</span><span class="p">:</span> <span class="n">diff_avg</span><span class="p">,</span>
+        <span class="s1">&#39;DifferenceEntropy&#39;</span><span class="p">:</span> <span class="n">diff_ent</span><span class="p">,</span>
+        <span class="s1">&#39;DifferenceVariance&#39;</span><span class="p">:</span> <span class="n">diff_var</span><span class="p">,</span>
+        <span class="s1">&#39;Id&#39;</span><span class="p">:</span> <span class="n">Id</span><span class="p">,</span> <span class="s1">&#39;Idm&#39;</span><span class="p">:</span> <span class="n">Idm</span><span class="p">,</span> <span class="s1">&#39;Idmn&#39;</span><span class="p">:</span> <span class="n">Idmn</span><span class="p">,</span> <span class="s1">&#39;Idn&#39;</span><span class="p">:</span> <span class="n">Idn</span><span class="p">,</span> <span class="s1">&#39;Imc1&#39;</span><span class="p">:</span> <span class="n">imc1</span><span class="p">,</span> <span class="s1">&#39;Imc2&#39;</span><span class="p">:</span> <span class="n">imc2</span><span class="p">,</span>
+        <span class="s1">&#39;InverseVariance&#39;</span><span class="p">:</span> <span class="n">inv_var</span><span class="p">,</span>
+        <span class="s1">&#39;JointAverage&#39;</span><span class="p">:</span> <span class="n">joint_avg</span><span class="p">,</span>
+        <span class="s1">&#39;JointEnergy&#39;</span><span class="p">:</span> <span class="n">joint_energy</span><span class="p">,</span>
+        <span class="s1">&#39;JointEntropy&#39;</span><span class="p">:</span> <span class="n">joint_ent</span><span class="p">,</span>
+        <span class="s1">&#39;MCC&#39;</span><span class="p">:</span> <span class="n">mcc</span><span class="p">,</span>
+        <span class="s1">&#39;MaximumProbability&#39;</span><span class="p">:</span> <span class="n">max_prob</span><span class="p">,</span>
+        <span class="s1">&#39;SumAverage&#39;</span><span class="p">:</span> <span class="n">sum_avg</span><span class="p">,</span>
+        <span class="s1">&#39;SumEntropy&#39;</span><span class="p">:</span> <span class="n">sum_ent</span><span class="p">,</span>
+        <span class="s1">&#39;SumSquares&#39;</span><span class="p">:</span> <span class="n">sum_squares</span>
+    <span class="p">}</span>
+
+
+<div class="viewcode-block" id="glcm_units">
+<a class="viewcode-back" href="../../api/numpyradiomics.glcm_units.html#numpyradiomics.glcm_units">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">glcm_units</span><span class="p">(</span><span class="n">intensity_unit</span><span class="o">=</span><span class="s1">&#39;HU&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns units for GLCM features.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        intensity_unit (str, optional): The unit of pixel intensity (e.g., &#39;HU&#39;, &#39;GV&#39;, &#39;&#39;). Default is &#39;HU&#39;.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Dictionary mapping feature names to their units.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from numpyradiomics import glcm_units</span>
+<span class="sd">        &gt;&gt;&gt; units = glcm_units(intensity_unit=&#39;HU&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; print(units[&#39;Contrast&#39;])</span>
+<span class="sd">        HU^2</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">base_unit</span> <span class="o">=</span> <span class="n">intensity_unit</span>
+    
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;Autocorrelation&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^2&quot;</span><span class="p">,</span>       <span class="c1"># sum(i * j * P) -&gt; I * I * 1</span>
+        <span class="s2">&quot;ClusterProminence&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^4&quot;</span><span class="p">,</span>     <span class="c1"># sum((i+j-u)^4 * P) -&gt; I^4</span>
+        <span class="s2">&quot;ClusterShade&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^3&quot;</span><span class="p">,</span>          <span class="c1"># sum((i+j-u)^3 * P) -&gt; I^3</span>
+        <span class="s2">&quot;ClusterTendency&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^2&quot;</span><span class="p">,</span>       <span class="c1"># sum((i+j-u)^2 * P) -&gt; I^2</span>
+        <span class="s2">&quot;Contrast&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^2&quot;</span><span class="p">,</span>              <span class="c1"># sum((i-j)^2 * P) -&gt; I^2</span>
+        <span class="s2">&quot;Correlation&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                         <span class="c1"># (Covariance / (std * std)) -&gt; I^2 / I^2 = 1</span>
+        <span class="s2">&quot;DifferenceAverage&quot;</span><span class="p">:</span> <span class="n">base_unit</span><span class="p">,</span>            <span class="c1"># sum(k * P_diff) -&gt; I * 1</span>
+        <span class="s2">&quot;DifferenceEntropy&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                   <span class="c1"># Entropy (bits)</span>
+        <span class="s2">&quot;DifferenceVariance&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^2&quot;</span><span class="p">,</span>    <span class="c1"># Variance of difference -&gt; I^2</span>
+        <span class="s2">&quot;Id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                                  <span class="c1"># Inverse Difference (1 / (1 + |i-j|)) -&gt; Dimensionless</span>
+        <span class="s2">&quot;Idm&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                                 <span class="c1"># Inverse Difference Moment (1 / (1 + (i-j)^2)) -&gt; Dimensionless</span>
+        <span class="s2">&quot;Idmn&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                                <span class="c1"># Normalized -&gt; Dimensionless</span>
+        <span class="s2">&quot;Idn&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                                 <span class="c1"># Normalized -&gt; Dimensionless</span>
+        <span class="s2">&quot;Imc1&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                                <span class="c1"># Correlation measure -&gt; Dimensionless</span>
+        <span class="s2">&quot;Imc2&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                                <span class="c1"># Correlation measure -&gt; Dimensionless</span>
+        <span class="s2">&quot;InverseVariance&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^-2&quot;</span><span class="p">,</span>      <span class="c1"># sum(P / |i-j|^2) -&gt; 1 / I^2</span>
+        <span class="s2">&quot;JointAverage&quot;</span><span class="p">:</span> <span class="n">base_unit</span><span class="p">,</span>                 <span class="c1"># Mean intensity -&gt; I</span>
+        <span class="s2">&quot;JointEnergy&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                         <span class="c1"># sum(P^2) -&gt; Dimensionless</span>
+        <span class="s2">&quot;JointEntropy&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                        <span class="c1"># Entropy (bits)</span>
+        <span class="s2">&quot;MCC&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                                 <span class="c1"># Correlation coeff -&gt; Dimensionless</span>
+        <span class="s2">&quot;MaximumProbability&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                  <span class="c1"># Probability value -&gt; Dimensionless</span>
+        <span class="s2">&quot;SumAverage&quot;</span><span class="p">:</span> <span class="n">base_unit</span><span class="p">,</span>                   <span class="c1"># sum(k * P_sum) -&gt; I * 1</span>
+        <span class="s2">&quot;SumEntropy&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>                          <span class="c1"># Entropy (bits)</span>
+        <span class="s2">&quot;SumSquares&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_unit</span><span class="si">}</span><span class="s2">^2&quot;</span><span class="p">,</span>            <span class="c1"># Variance from mean -&gt; I^2</span>
+    <span class="p">}</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, miblab.org.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
