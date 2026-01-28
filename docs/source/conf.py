@@ -57,7 +57,7 @@ sphinx_gallery_conf = {
     'exclude_implicit_doc': {},
 
     # thumbnail for examples that do not generate any plot
-    'default_thumb_file': '_static/miblab-gemini.jpg',
+    'default_thumb_file': '_static/numpyradiomics.png',
 
     # Disabling download button of all scripts
     'download_all_examples': False,
@@ -132,7 +132,7 @@ source_suffix = ['.rst', '.md']
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = '_static/miblab-gemini.jpg'
+html_logo = '_static/numpyradiomics.png'
 
 
 
